@@ -1,0 +1,12 @@
+add_subdirectory(Question)
+add_subdirectory(Choice_Question)
+add_subdirectory(Question_Round_1)
+add_subdirectory(Question_Round_2)
+add_subdirectory(Question_Round_3)
+add_subdirectory(Question_Round_4)
+add_subdirectory(Question_Round_5)
+
+add_library(Hard_Coded_Question_Provider Hard_Coded_Question_Provider.h Hard_Coded_Question_Provider.cpp)
+target_link_libraries(Hard_Coded_Question_Provider PUBLIC Question_Round_4 Question_Round_5 Utilities)
+target_include_directories(Hard_Coded_Question_Provider PUBLIC ${CMAKE_CURRENT_LIST_DIR})
+
