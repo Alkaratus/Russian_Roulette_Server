@@ -26,6 +26,6 @@ unsigned int Question_Round_1::get_correct() const {
     return correct;
 }
 
-void Question_Round_1::accept(Choice_Question_Visitor &visitor) {
-    visitor.visit_round_1_question(*this);
+void Question_Round_1::accept(Choice_Question_Visitor *visitor) {
+    visitor->visit_round_1_question(this);
 }

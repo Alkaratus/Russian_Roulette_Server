@@ -13,6 +13,6 @@ std::string Question_Round_2::get_answer_3() const {
     return answer3;
 }
 
-void Question_Round_2::accept(Choice_Question_Visitor &visitor) {
-    visitor.visit_round_2_question(*this);
+void Question_Round_2::accept(Choice_Question_Visitor *visitor) {
+    visitor->visit_round_2_question(this);
 }

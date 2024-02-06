@@ -13,7 +13,7 @@ class Choice_Question: public Question {
 protected:
     explicit Choice_Question(std::string content);
 public:
-    virtual void accept(Choice_Question_Visitor& visitor)=0;
+    virtual void accept(Choice_Question_Visitor* visitor)=0;
     ~Choice_Question() override=default;
 };
 

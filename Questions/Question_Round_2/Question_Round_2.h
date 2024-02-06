@@ -11,7 +11,7 @@ class Question_Round_2: public Question_Round_1 {
 public:
     Question_Round_2(std::string content, std::string answer1, std::string answer2, std::string answer3, unsigned int correct);
     std::string get_answer_3() const;
-    void accept(Choice_Question_Visitor& visitor) override;
+    void accept(Choice_Question_Visitor* visitor) override;
 };
 
 

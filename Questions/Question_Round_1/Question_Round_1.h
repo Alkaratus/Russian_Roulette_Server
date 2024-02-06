@@ -18,7 +18,7 @@ public:
     std::string get_answer_2() const;
     bool is_answer_correct(unsigned int answer)const;
     unsigned int get_correct()const;
-    void accept(Choice_Question_Visitor& visitor) override;
+    void accept(Choice_Question_Visitor* visitor) override;
 };
 
 

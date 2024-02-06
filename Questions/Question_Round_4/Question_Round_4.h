@@ -13,7 +13,7 @@ public:
     Question_Round_4(std::string content, std::string answer1, std::string answer2, std::string answer3,
                      std::string answer4, std::string answer5, unsigned int correct);
     std::string get_answer_5() const;
-    void accept(Choice_Question_Visitor& visitor) override;
+    void accept(Choice_Question_Visitor* visitor) override;
 };
 
 
