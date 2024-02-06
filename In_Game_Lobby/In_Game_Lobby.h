@@ -7,7 +7,7 @@
 #include "Messenger.h"
 #include "Pre_Game_Lobby.h"
 #include "In_Game_Player.h"
-#include "Hard_Coded_Question_Provider.h"
+#include "Question_Provider.h"
 #include "In_Game_Server.h"
 
 class In_Game_Lobby {
@@ -23,8 +23,7 @@ class In_Game_Lobby {
 
     Messenger<std::list<In_Game_Lobby>::iterator> &running_games_messenger;
 
-    //TODO: I have to release dependencies
-    Hard_Coded_Question_Provider provider;
+    std::unique_ptr<Question_Provider> provider;
 
     Messenger<unsigned int>option_messenger;
     Messenger<std::string>answer_messenger;

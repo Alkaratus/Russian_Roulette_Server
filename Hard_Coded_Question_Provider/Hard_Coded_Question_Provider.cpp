@@ -5,7 +5,7 @@
 #include "Utilities.h"
 #include "Question_Round_4.h"
 #include "Question_Round_5.h"
-#include "Hard_Coded_Question_Provider.h"
+#include "Hard_Coded_Question_Provider/Hard_Coded_Question_Provider.h"
 
 
 const std::vector<Question_Round_1>round_1_questions={
@@ -145,30 +145,30 @@ const std::vector<Question_Round_5>round_5_questions={
         Question_Round_5("Ile razy reprezentacja Polski zagrała na mistrzostwach świata w piłce nożnej? Podaj liczbę", "9")
 };
 
-Question_Round_1 Hard_Coded_Question_Provider::get_round_1_question(const unsigned int index) {
-    return round_1_questions[questions_IDs[0][index]];
+Question_Round_1 Hard_Coded_Question_Provider::get_round_1_question_data(const unsigned int index) {
+    return round_1_questions[index];
 }
 
-Question_Round_2 Hard_Coded_Question_Provider::get_round_2_question(const unsigned int index) {
-    return round_2_questions[questions_IDs[1][index]];
+Question_Round_2 Hard_Coded_Question_Provider::get_round_2_question_data(const unsigned int index) {
+    return round_2_questions[index];
 }
 
-Question_Round_3 Hard_Coded_Question_Provider::get_round_3_question(const unsigned int index) {
-    return round_3_questions[questions_IDs[2][index]];
+Question_Round_3 Hard_Coded_Question_Provider::get_round_3_question_data(const unsigned int index) {
+    return round_3_questions[index];
 }
 
-Question_Round_4 Hard_Coded_Question_Provider::get_round_4_question(const unsigned int index) {
-    return round_4_questions[questions_IDs[3][index]];
+Question_Round_4 Hard_Coded_Question_Provider::get_round_4_question_data(const unsigned int index) {
+    return round_4_questions[index];
 }
 
-Question_Round_5 Hard_Coded_Question_Provider::get_round_5_question(const unsigned int index) {
-    return round_5_questions[questions_IDs[4][index]];
+Question_Round_5 Hard_Coded_Question_Provider::get_round_5_question_data(const unsigned int index) {
+    return round_5_questions[index];
 }
 
 Hard_Coded_Question_Provider::Hard_Coded_Question_Provider() {
-    questions_IDs[0]=generate_random_unique_list(0,round_1_questions.size()-1,12);
-    questions_IDs[1]=generate_random_unique_list(0,round_2_questions.size()-1,10);
-    questions_IDs[2]=generate_random_unique_list(0,round_3_questions.size()-1,8);
-    questions_IDs[3]=generate_random_unique_list(0,round_4_questions.size()-1,6);
-    questions_IDs[4]=generate_random_unique_list(0,round_5_questions.size()-1,4);
+    set_round_1_questions_IDs(generate_random_unique_list(0,round_1_questions.size()-1,ROUND_1_QUESTIONS_NUMBER));
+    set_round_2_questions_IDs(generate_random_unique_list(0,round_2_questions.size()-1,ROUND_2_QUESTIONS_NUMBER));
+    set_round_3_questions_IDs(generate_random_unique_list(0,round_3_questions.size()-1,ROUND_3_QUESTIONS_NUMBER));
+    set_round_4_questions_IDs(generate_random_unique_list(0,round_4_questions.size()-1,ROUND_4_QUESTIONS_NUMBER));
+    set_round_5_questions_IDs(generate_random_unique_list(0,round_5_questions.size()-1,ROUND_5_QUESTIONS_NUMBER));
 }

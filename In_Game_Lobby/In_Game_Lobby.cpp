@@ -6,6 +6,7 @@
 #include <utility>
 #include "Utilities.h"
 #include "In_Game_Server.h"
+#include "Hard_Coded_Question_Provider.h"
 
 using grpc::Server;
 using grpc::ServerBuilder;
@@ -25,11 +26,11 @@ question_number(0),
 answering_player(NONE_PLAYER_MARKED),
 choosing_player(NONE_PLAYER_MARKED),
 running_games_messenger(running_games_messenger),
+provider(std::make_unique<Hard_Coded_Question_Provider>()),
 service(*this){
     for (unsigned int i=0;i<NUMBER_OF_PLAYERS;i++){
         players[i]=std::make_unique<In_Game_Player>(std::move(lobby.players[i]));
     }
-
     ServerBuilder builder;
     builder.RegisterService(&service);
     do{
@@ -336,7 +337,7 @@ void In_Game_Lobby::ask_round_1_questions() {
     do{
         pre_question_sequence();
         sleep_for(std::chrono::seconds(3));
-        auto question=provider.get_round_1_question(index);
+        auto question=provider->get_round_1_question(index);
         question_data(question.get_content());
         sleep_for(std::chrono::seconds(1));
         question_data(question.get_content()+"\nDla kogo to pytanie?");
